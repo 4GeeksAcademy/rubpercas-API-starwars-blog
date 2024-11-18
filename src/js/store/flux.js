@@ -1,45 +1,57 @@
 const getState = ({ getStore, getActions, setStore }) => {
 	return {
 		store: {
-			demo: [
-				{
-					title: "FIRST",
-					background: "white",
-					initial: "white"
-				},
-				{
-					title: "SECOND",
-					background: "white",
-					initial: "white"
-				}
-			]
+			people: [],
+			planets: [],
+			films: [],
+			species: [],
+			starships: [],
+			vehicles: []
 		},
 		actions: {
-			// Use getActions to call a function within a fuction
-			exampleFunction: () => {
-				getActions().changeColor(0, "green");
+			getPeople: async () => {
+				const response = await fetch ("https://www.swapi.tech/api/people/");
+				const result = await response.json();
+				
+				setStore({ people: result.results });
 			},
-			loadSomeData: () => {
-				/**
-					fetch().then().then(data => setStore({ "foo": data.bar }))
-				*/
+			getPlanets: async () => {
+				const response = await fetch ("https://www.swapi.tech/api/planets/");
+				const result = await response.json();
+				
+				setStore({ planets: result.results });
 			},
-			changeColor: (index, color) => {
-				//get the store
-				const store = getStore();
-
-				//we have to loop the entire demo array to look for the respective index
-				//and change its color
-				const demo = store.demo.map((elm, i) => {
-					if (i === index) elm.background = color;
-					return elm;
-				});
-
-				//reset the global store
-				setStore({ demo: demo });
-			}
+			getFilms: async () => {
+				const response = await fetch ("https://www.swapi.tech/api/films/");
+				const result = await response.json();
+				
+				setStore({ films: result.result });
+			},
+			getSpecies: async () => {
+				const response = await fetch ("https://www.swapi.tech/api/species/");
+				const result = await response.json();
+				
+				setStore({ species: result.results });
+			},
+			getStarships: async () => {
+				const response = await fetch ("https://www.swapi.tech/api/starships/");
+				const result = await response.json();
+				
+				setStore({ starships: result.results });
+			},
+			getVehicles: async () => {
+				const response = await fetch ("https://www.swapi.tech/api/vehicles/");
+				const result = await response.json();
+				
+				setStore({ vehicles: result.results });
+			},
+			setFavs: () => {
+				
+			},
+			
 		}
-	};
+	}
 };
+
 
 export default getState;
