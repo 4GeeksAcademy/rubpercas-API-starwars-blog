@@ -1,0 +1,11 @@
+.card-container {
+    display: flex;
+    overflow-x: auto;
+    white-space: nowrap;
+  }
+  
+  .card {
+    /* Estilos existentes de tu tarjeta */
+    flex: 0 0 auto; /* Permite que cada tarjeta tenga su propio ancho */
+    margin: 0 10px; /* Añade un margen para separar las tarjetas */
+  }

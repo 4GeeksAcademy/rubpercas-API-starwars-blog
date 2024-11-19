@@ -2,6 +2,7 @@ const getState = ({ getStore, getActions, setStore }) => {
 	return {
 		store: {
 			people: [],
+			person: [],
 			planets: [],
 			films: [],
 			species: [],
@@ -14,6 +15,13 @@ const getState = ({ getStore, getActions, setStore }) => {
 				const result = await response.json();
 				
 				setStore({ people: result.results });
+			},
+			getPerson: async (uid) => {
+				const response = await fetch (`https://www.swapi.tech/api/people/${uid}`);
+				const result = await response.json();
+				
+				setStore({ person: result.result });
+				console.log(result.result);
 			},
 			getPlanets: async () => {
 				const response = await fetch ("https://www.swapi.tech/api/planets/");
