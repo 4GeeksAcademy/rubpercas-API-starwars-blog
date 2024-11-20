@@ -3,5 +3,6 @@
 
 body {
     font-family: 'SF Distant Galaxy', sans-serif;
+    font-weight: lighter;
     background: url("https://lumiere-a.akamaihd.net/v1/images/star-wars-backgrounds-14_856985d9.jpeg") no-repeat center center fixed;
 }
