@@ -1,65 +1,108 @@
+const ROOT_URL = "https://swapi.tech/api";
 const getState = ({ getStore, getActions, setStore }) => {
 	return {
 		store: {
 			people: [],
-			person: [],
+			vehicles: [],
 			planets: [],
-			films: [],
-			species: [],
-			starships: [],
-			vehicles: []
+			favorites: {
+				people: [],
+				vehicles: [],
+				planets: [],
+			},
 		},
 		actions: {
-			getPeople: async () => {
-				const response = await fetch ("https://www.swapi.tech/api/people/");
-				const result = await response.json();
-				
-				setStore({ people: result.results });
+			// Use getActions to call a function within a fuction
+			getAllPeople: async () => {
+				try {
+					const response = await fetch(`${ROOT_URL}/people`);
+					const data = await response.json();
+					setStore({ people: data.results });
+				} catch (error) {
+					console.log(error);
+				}
 			},
-			getPerson: async (uid) => {
-				const response = await fetch (`https://www.swapi.tech/api/people/${uid}`);
-				const result = await response.json();
-				
-				setStore({ person: result.result });
-				console.log(result.result);
+			getPeopleById: async (id) => {
+				try {
+					const response = await fetch(`${ROOT_URL}/people/${id}`);
+					const data = await response.json();
+					return data;
+				} catch (error) {
+					console.log(error);
+				}
 			},
-			getPlanets: async () => {
-				const response = await fetch ("https://www.swapi.tech/api/planets/");
-				const result = await response.json();
-				
-				setStore({ planets: result.results });
+			getAllVehicles: async () => {
+				try {
+					const response = await fetch(`${ROOT_URL}/vehicles`);
+					const data = await response.json();
+					setStore({ vehicles: data.results });
+				} catch (error) {
+					console.log(error);
+				}
 			},
-			getFilms: async () => {
-				const response = await fetch ("https://www.swapi.tech/api/films/");
-				const result = await response.json();
-				
-				setStore({ films: result.result });
+			getVehicleById: async (id) => {
+				try {
+					const response = await fetch(`${ROOT_URL}/vehicles/${id}`);
+					const data = await response.json();
+					return data;
+				} catch (error) {
+					console.log(error);
+				}
 			},
-			getSpecies: async () => {
-				const response = await fetch ("https://www.swapi.tech/api/species/");
-				const result = await response.json();
-				
-				setStore({ species: result.results });
+			getAllPlanets: async () => {
+				try {
+					const response = await fetch(`${ROOT_URL}/planets`);
+					const data = await response.json();
+					setStore({ planets: data.results });
+				} catch (error) {
+					console.log(error);
+				}
 			},
-			getStarships: async () => {
-				const response = await fetch ("https://www.swapi.tech/api/starships/");
-				const result = await response.json();
-				
-				setStore({ starships: result.results });
+			getPlanetById: async (id) => {
+				try {
+					const response = await fetch(`${ROOT_URL}/planets/${id}`);
+					const data = await response.json();
+					return data;
+				} catch (error) {
+					console.log(error);
+				}
 			},
-			getVehicles: async () => {
-				const response = await fetch ("https://www.swapi.tech/api/vehicles/");
-				const result = await response.json();
-				
-				setStore({ vehicles: result.results });
+			toggleFavorite: (data, type) => {
+				const { favorites } = getStore();
+				switch (type) {
+					case "people":
+						const isPeopleFavorite = favorites.people.find((favorite) => favorite.result.uid === data.result.uid);
+						if (isPeopleFavorite) {
+							const newFavorites = favorites.people.filter((favorite) => favorite.result.uid !== data.result.uid);
+							setStore({ favorites: { ...favorites, people: newFavorites } });
+						} else {
+							setStore({ favorites: { ...favorites, people: [...favorites.people, data] } });
+						}
+						break;
+					case "vehicles":
+						const isVehicleFavorite = favorites.vehicles.find((favorite) => favorite.result.uid === data.result.uid);
+						if (isVehicleFavorite) {
+							const newFavorites = favorites.vehicles.filter((favorite) => favorite.result.uid !== data.result.uid);
+							setStore({ favorites: { ...favorites, vehicles: newFavorites } });
+						} else {
+							setStore({ favorites: { ...favorites, vehicles: [...favorites.vehicles, data] } });
+						}
+						break;
+					case "planets":
+						const isPlanetFavorite = favorites.planets.find((favorite) => favorite.result.uid === data.result.uid);
+						if (isPlanetFavorite) {
+							const newFavorites = favorites.planets.filter((favorite) => favorite.result.uid !== data.result.uid);
+							setStore({ favorites: { ...favorites, planets: newFavorites } });
+						} else {
+							setStore({ favorites: { ...favorites, planets: [...favorites.planets, data] } });
+						}
+						break;
+					default:
+						break;
+				}
 			},
-			setFavs: () => {
-				
-			},
-			
-		}
-	}
+		},
+	};
 };
-
 
 export default getState;
