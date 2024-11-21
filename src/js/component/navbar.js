@@ -2,24 +2,27 @@ import React, { useContext } from "react";
 import { Link } from "react-router-dom";
 import logo from "../../img/star-wars-logo.png"
 import { Context } from "../store/appContext";
+import '../../styles/navbar.css';
+import favorite from "../../img/favorite-button.png";
+
 
 export const Navbar = () => {
 	const { store, actions } = useContext(Context);
 
 	return (
-		<nav className="navbar navbar-secondary bg-secondary mb-3">
+		<nav className="navbar navbar-black bg-black mb-3">
 			<div className="container">
 				<Link to="/">
 					<img src={logo} height={64} />
 				</Link>
 				<div className="ml-auto">
 					<div className="dropdown">
-						<button className="btn btn-success dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
-							Favorites
-							<span className="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger">
+						<button className="favorite-button dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+							<img src={favorite} height={64}/>
+							<h1 className="position-absolute top-50 start-100 translate-middle badge rounded bg-danger">
 								{(store.favorites.people.length + store.favorites.vehicles.length + store.favorites.planets.length) || 0}
-								<span className="visually-hidden">unread messages</span>
-							</span>
+								<h1 className="visually-hidden">unread messages</h1>
+							</h1>
 						</button>
 						<ul className="dropdown-menu dropdown-menu-end text-center">
 							<li><h6 className="dropdown-header text-danger">People</h6></li>

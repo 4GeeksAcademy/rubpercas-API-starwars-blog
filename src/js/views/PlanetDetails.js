@@ -1,10 +1,9 @@
 import React, { useContext, useEffect, useState } from 'react'
-import defaultImage from '../../img/star-wars-logo.png'
 import { useParams } from 'react-router'
 import { Context } from '../store/appContext';
 
-const planetImages = {
-  1: "https://starwars-visualguide.com/assets/img/planets/1.jpg",
+const planetImg = {
+  1: "https://static.wikia.nocookie.net/esstarwars/images/b/b0/Tatooine_TPM.png/revision/latest?cb=20131214162357",
   2: "https://starwars-visualguide.com/assets/img/planets/2.jpg",
   3: "https://starwars-visualguide.com/assets/img/planets/3.jpg",
   4: "https://starwars-visualguide.com/assets/img/planets/4.jpg",
@@ -37,7 +36,7 @@ export const PlanetDetails = () => {
           <div className="card mb-3 bg-secondary">
             <div className="row g-0">
               <div className="col-md-4">
-                <img onError={(e) => e.target.src = defaultImage} src={planetImages[id]} className="img-fluid rounded-start" alt="Planet image" />
+                <img src={planetImg[id]} className="img-fluid rounded-start" alt="Planet image" />
               </div>
               <div className="col-md-8">
                 <div className="card-body">

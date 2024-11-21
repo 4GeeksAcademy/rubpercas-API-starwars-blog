@@ -17,6 +17,7 @@ const vehicleImages = {
 }
 
 
+
 export const VehicleDetails = () => {
   const { id } = useParams()
   const { actions } = useContext(Context);

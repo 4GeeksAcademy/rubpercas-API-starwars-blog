@@ -12,10 +12,9 @@ const getState = ({ getStore, getActions, setStore }) => {
 			},
 		},
 		actions: {
-			// Use getActions to call a function within a fuction
 			getAllPeople: async () => {
 				try {
-					const response = await fetch(`${ROOT_URL}/people`);
+					const response = await fetch(`https://swapi.tech/api/people`);
 					const data = await response.json();
 					setStore({ people: data.results });
 				} catch (error) {
@@ -24,7 +23,7 @@ const getState = ({ getStore, getActions, setStore }) => {
 			},
 			getPeopleById: async (id) => {
 				try {
-					const response = await fetch(`${ROOT_URL}/people/${id}`);
+					const response = await fetch(`https://swapi.tech/api/people/${id}`);
 					const data = await response.json();
 					return data;
 				} catch (error) {
@@ -33,7 +32,7 @@ const getState = ({ getStore, getActions, setStore }) => {
 			},
 			getAllVehicles: async () => {
 				try {
-					const response = await fetch(`${ROOT_URL}/vehicles`);
+					const response = await fetch(`https://swapi.tech/api/vehicles`);
 					const data = await response.json();
 					setStore({ vehicles: data.results });
 				} catch (error) {
@@ -42,7 +41,7 @@ const getState = ({ getStore, getActions, setStore }) => {
 			},
 			getVehicleById: async (id) => {
 				try {
-					const response = await fetch(`${ROOT_URL}/vehicles/${id}`);
+					const response = await fetch(`https://swapi.tech/api/vehicles/${id}`);
 					const data = await response.json();
 					return data;
 				} catch (error) {
@@ -51,7 +50,7 @@ const getState = ({ getStore, getActions, setStore }) => {
 			},
 			getAllPlanets: async () => {
 				try {
-					const response = await fetch(`${ROOT_URL}/planets`);
+					const response = await fetch(`https://swapi.tech/api/planets`);
 					const data = await response.json();
 					setStore({ planets: data.results });
 				} catch (error) {
@@ -60,7 +59,7 @@ const getState = ({ getStore, getActions, setStore }) => {
 			},
 			getPlanetById: async (id) => {
 				try {
-					const response = await fetch(`${ROOT_URL}/planets/${id}`);
+					const response = await fetch(`https://swapi.tech/api/planets/${id}`);
 					const data = await response.json();
 					return data;
 				} catch (error) {
