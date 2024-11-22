@@ -5,11 +5,27 @@ const getState = ({ getStore, getActions, setStore }) => {
 			people: [],
 			vehicles: [],
 			planets: [],
+
 			favorites: {
 				people: [],
 				vehicles: [],
 				planets: [],
 			},
+
+			popleImg: {
+				1: "https://starwars-visualguide.com/assets/img/characters/1.jpg",
+				2: "https://starwars-visualguide.com/assets/img/characters/2.jpg",
+				3: "https://starwars-visualguide.com/assets/img/characters/3.jpg",
+				4: "https://starwars-visualguide.com/assets/img/characters/4.jpg",
+				5: "https://starwars-visualguide.com/assets/img/characters/5.jpg",
+				6: "https://starwars-visualguide.com/assets/img/characters/6.jpg",
+				7: "https://starwars-visualguide.com/assets/img/characters/7.jpg",
+				8: "https://starwars-visualguide.com/assets/img/characters/8.jpg",
+				9: "https://starwars-visualguide.com/assets/img/characters/9.jpg",
+				10: "https://starwars-visualguide.com/assets/img/characters/10.jpg",
+			},
+
+			
 		},
 		actions: {
 			getAllPeople: async () => {

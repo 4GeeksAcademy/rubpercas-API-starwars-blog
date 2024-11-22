@@ -1,5 +1,6 @@
 
 body {
-    font-weight: lighter;
-    background: url("https://lumiere-a.akamaihd.net/v1/images/star-wars-backgrounds-14_856985d9.jpeg") no-repeat center center fixed;
+    background: url("https://cdn.pixabay.com/photo/2016/08/28/18/28/star-1626550_1280.jpg");
+    background-size: cover;
+    background-position: center;
 }

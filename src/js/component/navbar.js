@@ -10,19 +10,18 @@ export const Navbar = () => {
 	const { store, actions } = useContext(Context);
 
 	return (
-		<nav className="navbar navbar-black bg-black mb-3">
-			<div className="container">
+		<nav className="navbar">
+			<div className="container-fluid">
 				<Link to="/">
-					<img src={logo} height={64} />
+					<img className="starwars-logo"src={logo} height={64} />
 				</Link>
 				<div className="ml-auto">
 					<div className="dropdown">
-						<button className="favorite-button dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
-							<img src={favorite} height={64}/>
-							<h1 className="position-absolute top-50 start-100 translate-middle badge rounded bg-danger">
+						<button className="favorite-button dropdown-toggle d-flex" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+							<img style={{ height: '100px'}} src={favorite} height={64}/>
+							<h2 className="badge rounded bg-danger">
 								{(store.favorites.people.length + store.favorites.vehicles.length + store.favorites.planets.length) || 0}
-								<h1 className="visually-hidden">unread messages</h1>
-							</h1>
+							</h2>
 						</button>
 						<ul className="dropdown-menu dropdown-menu-end text-center">
 							<li><h6 className="dropdown-header text-danger">People</h6></li>

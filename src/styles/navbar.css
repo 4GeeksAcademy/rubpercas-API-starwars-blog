@@ -4,3 +4,15 @@
     padding: 0;
     cursor: pointer;
 }
+
+.favorite-button:hover, .starwars-logo:hover {
+    opacity: 0.8;
+    transform: scale(1.05);
+  }
+
+.navbar {
+    background-color: rgba(0, 0, 0, 0.699);
+    border-bottom: 2px solid rgba(255, 251, 0, 0.678);
+    padding: 0;
+    margin: 5px;
+}

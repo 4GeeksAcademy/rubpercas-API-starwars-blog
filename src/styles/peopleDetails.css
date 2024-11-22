@@ -1,0 +1,65 @@
+.myCard {
+    height: 100%;
+    width: 75%;
+    margin-left: 20px;
+    margin-right: 20px;
+    background-image: url("https://cdn.pixabay.com/photo/2017/02/13/03/57/papertexture-2061710_1280.jpg");
+    background-position: center;
+    background-size: cover;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    color: rgb(0, 0, 0);
+    border-radius: 10px;
+    box-shadow: 0px 0px 10px rgba(255, 251, 0, 0.678);
+}
+
+.top-card {
+    height: 300px;
+    display: flex;
+    align-items: center;
+    justify-content: start;
+}
+
+.detail-img {
+    flex-basis: 30%;
+    margin-left: 40px;
+    width: 40%;
+    filter: drop-shadow(2px 2px 4px rgba(0, 0, 0, 0.575));
+}
+
+.detail-img:hover {
+    transform: scale(1.5);
+    transition: 1s ease-in-out;
+}
+
+.detail-img:not(:hover) {
+    transform: scale(1.0);
+    transition: 1s ease-in-out;
+}
+
+.main-info {
+    flex-basis: 50%;
+    border-left: 6px solid rgb(0, 0, 0);
+    border-right: 6px solid rgba(0, 0, 0);
+    margin-left: 40px;
+    margin-right: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: start;
+    flex-direction: column;
+}
+.extra-info-container{
+    flex-basis: 20%;
+    margin-right: 40px;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    justify-content: center;
+    width: 100%;
+}
+
+.extra-info {
+    margin-top: 3px;
+    border-bottom: 6px solid rgba(0, 0, 0);
+}

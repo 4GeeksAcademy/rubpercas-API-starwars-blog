@@ -3,7 +3,7 @@ import defaultImage from '../../img/star-wars-logo.png'
 import { useParams } from 'react-router'
 import { Context } from '../store/appContext';
 
-const vehicleImages = {
+const vehicleImg = {
   4: "https://starwars-visualguide.com/assets/img/vehicles/4.jpg",
   7: "https://starwars-visualguide.com/assets/img/vehicles/7.jpg",
   6: "https://starwars-visualguide.com/assets/img/vehicles/6.jpg",
@@ -38,7 +38,7 @@ export const VehicleDetails = () => {
           <div className="card mb-3 bg-secondary">
             <div className="row g-0">
               <div className="col-md-4">
-                <img onError={(e) => e.target.src = defaultImage} src={vehicleImages[id]} className="img-fluid rounded-start" alt="Planet image" />
+                <img onError={(e) => e.target.src = defaultImage} src={vehicleImg[id]} className="img-fluid rounded-start" alt="Planet image" />
               </div>
               <div className="col-md-8">
                 <div className="card-body">

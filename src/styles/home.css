@@ -1,11 +1,27 @@
 .card-container {
-    display: flex;
-    overflow-x: auto;
-    white-space: nowrap;
-  }
-  
-  .card {
-    /* Estilos existentes de tu tarjeta */
-    flex: 0 0 auto; /* Permite que cada tarjeta tenga su propio ancho */
-    margin: 0 10px; /* Añade un margen para separar las tarjetas */
-  }
+  display: flex;
+  overflow-x: auto;
+  white-space: nowrap;
+}
+
+.card {
+  flex: 0 0 auto;
+  margin: 0 10px;
+}
+
+h1 {
+  font-weight: 1000;
+  color: rgb(255, 208, 0);
+  background: url("https://cdn.pixabay.com/photo/2017/08/08/00/33/constellations-2609647_1280.jpg");
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  background-position: center;
+  background-size: cover;
+  -webkit-text-stroke: 1px rgb(255, 208, 0);
+}
+
+.loading-img {
+  height: 100px;
+  width: 100px;
+  opacity: 60%;
+}

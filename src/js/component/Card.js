@@ -1,9 +1,8 @@
 import React, { useContext, useEffect, useState } from 'react'
-import defaultImage from "../../img/star-wars-logo.png"
 import { Context } from '../store/appContext.js';
 import { Link } from 'react-router-dom';
 
-const peopleImages = {
+const peopleImg = {
   1: "https://starwars-visualguide.com/assets/img/characters/1.jpg",
   2: "https://starwars-visualguide.com/assets/img/characters/2.jpg",
   3: "https://starwars-visualguide.com/assets/img/characters/3.jpg",
@@ -16,8 +15,8 @@ const peopleImages = {
   10: "https://starwars-visualguide.com/assets/img/characters/10.jpg",
 }
 
-const planetImages = {
-  1: "https://starwars-visualguide.com/assets/img/planets/1.jpg",
+const planetImg = {
+  1: "https://static.wikia.nocookie.net/esstarwars/images/b/b0/Tatooine_TPM.png/revision/latest?cb=20131214162357",
   2: "https://starwars-visualguide.com/assets/img/planets/2.jpg",
   3: "https://starwars-visualguide.com/assets/img/planets/3.jpg",
   4: "https://starwars-visualguide.com/assets/img/planets/4.jpg",
@@ -29,7 +28,7 @@ const planetImages = {
   10: "https://starwars-visualguide.com/assets/img/planets/10.jpg",
 }
 
-const vehicleImages = {
+const vehiclesImg = {
   4: "https://starwars-visualguide.com/assets/img/vehicles/4.jpg",
   7: "https://starwars-visualguide.com/assets/img/vehicles/7.jpg",
   6: "https://starwars-visualguide.com/assets/img/vehicles/6.jpg",
@@ -47,7 +46,7 @@ export const Card = ({ id, type }) => {
   const [data, setData] = useState(null)
 
   useEffect(() => {
-    const fetchData = async () => {
+    const getData = async () => {
       if (type === "people") {
         setData(await actions.getPeopleById(id))
       } else if (type === "planets") {
@@ -56,14 +55,24 @@ export const Card = ({ id, type }) => {
         setData(await actions.getVehicleById(id))
       }
     }
-    fetchData();
+    getData();
   }, [])
 
   return (
     <div className="col">
-      <div className="card" style={{ width: "18rem" }} data-bs-theme="dark">
-        <img onError={(e) => e.target.src = defaultImage} src={type === "people" ? peopleImages[id] : type === "planets" ? planetImages[id] : vehicleImages[id]} className="card-img-top" alt="image" />
-        <div className="card-body d-flex flex-column justify-content-between" style={{ height: "100%", minHeight: "250px" }}>
+      <div
+        className="card mb-3"
+        style={{ width: "18rem" }}
+        data-bs-theme="dark">
+        <img
+          src={type === "people" ? peopleImg[id] :
+            type === "planets" ? planetImg[id] :
+              vehiclesImg[id]}
+          className="card-img-top"
+          alt="picture" />
+        <div
+          className="card-body d-flex flex-column justify-content-between"
+          style={{ height: "100%", minHeight: "250px" }}>
           <h5 className="card-title">{data?.result.properties.name}</h5>
           {
             type === "people" && (
@@ -72,8 +81,13 @@ export const Card = ({ id, type }) => {
                 <p className="card-text">Hair Color: {data?.result.properties.hair_color}</p>
                 <p className="card-text">Eye Color: {data?.result.properties.eye_color}</p>
                 <div className='d-flex justify-content-between'>
-                  <Link to={`people-details/${id}`} className="btn btn-primary">Learn more!</Link>
-                  <button className='btn btn-primary' onClick={() => actions.toggleFavorite(data, "people")}>
+                  <Link to={`people-details/${id}`}
+                    className="btn btn-primary">
+                    More info
+                  </Link>
+                  <button
+                    className='btn btn-danger'
+                    onClick={() => actions.toggleFavorite(data, "people")}>
                     {
                       store.favorites.people.find(favorite => favorite.result.properties.name === data?.result.properties.name) ? <i className="fas fa-heart"></i> : <i className="far fa-heart"></i>
                     }
@@ -88,8 +102,13 @@ export const Card = ({ id, type }) => {
                 <p className="card-text">Population: {data?.result.properties.population}</p>
                 <p className="card-text">Terrain: {data?.result.properties.terrain}</p>
                 <div className='d-flex justify-content-between'>
-                  <Link to={`planet-details/${id}`} className="btn btn-primary">Learn more!</Link>
-                  <button className='btn btn-primary' onClick={() => actions.toggleFavorite(data, "planets")}>
+                  <Link to={`planet-details/${id}`}
+                    className="btn btn-primary">
+                    More info
+                  </Link>
+                  <button
+                    className='btn btn-danger'
+                    onClick={() => actions.toggleFavorite(data, "planets")}>
                     {
                       store.favorites.planets.find(favorite => favorite.result.uid === data?.result.uid) ? <i className="fas fa-heart"></i> : <i className="far fa-heart"></i>
                     }
@@ -104,8 +123,12 @@ export const Card = ({ id, type }) => {
                 <p className="card-text">Model: {data?.result.properties.model}</p>
                 <p className="card-text">Manufacturer: {data?.result.properties.manufacturer}</p>
                 <div className='d-flex justify-content-between'>
-                  <Link to={`vehicle-details/${id}`} className="btn btn-primary">Learn more!</Link>
-                  <button className='btn btn-primary' onClick={() => actions.toggleFavorite(data, "vehicles")}>
+                  <Link to={`vehicle-details/${id}`}
+                    className="btn btn-primary">
+                    More info
+                  </Link>
+                  <button className='btn btn-danger'
+                    onClick={() => actions.toggleFavorite(data, "vehicles")}>
                     {
                       store.favorites.vehicles.find(favorite => favorite.result.properties.name === data?.result.properties.name) ? <i className="fas fa-heart"></i> : <i className="far fa-heart"></i>
                     }

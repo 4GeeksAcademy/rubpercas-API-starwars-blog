@@ -2,8 +2,9 @@ import React, { useContext, useEffect, useState } from 'react'
 import defaultImage from '../../img/star-wars-logo.png'
 import { useParams } from 'react-router'
 import { Context } from '../store/appContext';
+import "../../styles/peopleDetails.css"
 
-const peopleImages = {
+const peopleImg = {
   1: "https://starwars-visualguide.com/assets/img/characters/1.jpg",
   2: "https://starwars-visualguide.com/assets/img/characters/2.jpg",
   3: "https://starwars-visualguide.com/assets/img/characters/3.jpg",
@@ -30,39 +31,35 @@ export const PeopleDetails = () => {
   }, [people])
 
   return (
-    <div className='container'>
-      <h1 className='text-light'>Character: {people?.result.properties.name}</h1>
-      <div className='row'>
-        <div className='col'>
-          <div className="card mb-3 bg-secondary">
-            <div className="row g-0">
-              <div className="col-md-4">
-                <img onError={(e) => e.target.src = defaultImage} src={peopleImages[id]} className="img-fluid rounded-start" alt="Planet image" />
+    <>
+      <h1 className="text-light text-center mb-4">It's {people?.result.properties.name}!</h1>
+      <div className="container-fluid d-flex justify-content-center">
+        <div className="myCard">
+          <div className="top-card">
+            <div className="detail-img">
+              <img src={peopleImg[id]} className="img-fluid rounded-start" alt="Planet image" />
+            </div>
+            <div className="main-info">
+              <h5>{people?.result.properties.name}</h5>
+              <p>{people?.result.description}</p>
+            </div>
+            <div className="extra-info-container">
+              <div className="extra-info">
+                <h4 className="m-0">Gender</h4>
+                <p className="text-center m-0">{people?.result.properties.gender}</p>
               </div>
-              <div className="col-md-8">
-                <div className="card-body">
-                  <h5 className="card-title">{people?.result.properties.name}</h5>
-                  <p className="card-text">{people?.result.description}</p>
-                </div>
+              <div className="extra-info">
+                <h4 className="m-0">Height</h4>
+                <p className="text-center m-0">{people?.result.properties.height} cm</p>
+              </div>
+              <div className="extra-info">
+                <h4 className="m-0">Skin Color</h4>
+                <p className="text-center m-0">{people?.result.properties.skin_color}</p>
               </div>
             </div>
           </div>
-          <ul className='list-group list-group-horizontal w-100'>
-            <li className='col list-group-item list-group-item-secondary text-center'>
-              <h2>Gender</h2>
-              <p className='fs-4'>{people?.result.properties.gender}</p>
-            </li>
-            <li className='col list-group-item list-group-item-secondary text-center'>
-              <h2>Height</h2>
-              <p className='fs-4'>{people?.result.properties.height} cm</p>
-            </li>
-            <li className='col list-group-item list-group-item-secondary text-center'>
-              <h2>Skin Color</h2>
-              <p className='fs-4'>{people?.result.properties.skin_color}</p>
-            </li>
-          </ul>
         </div>
       </div>
-    </div>
+    </>
   )
 }
