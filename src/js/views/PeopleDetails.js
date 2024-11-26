@@ -1,5 +1,4 @@
 import React, { useContext, useEffect, useState } from 'react'
-import defaultImage from '../../img/star-wars-logo.png'
 import { useParams } from 'react-router'
 import { Context } from '../store/appContext';
 import "../../styles/peopleDetails.css"
@@ -32,15 +31,15 @@ export const PeopleDetails = () => {
 
   return (
     <>
-      <h1 className="text-light text-center mb-4">It's {people?.result.properties.name}!</h1>
+      <h1 className="text-center mb-4 mt-4">It's {people?.result.properties.name}!</h1>
       <div className="container-fluid d-flex justify-content-center">
         <div className="myCard">
           <div className="top-card">
             <div className="detail-img">
-              <img src={peopleImg[id]} className="img-fluid rounded-start" alt="Planet image" />
+              <img src={peopleImg[id]} className="img-fluid" />
             </div>
             <div className="main-info">
-              <h5>{people?.result.properties.name}</h5>
+              <h3>{people?.result.properties.name}</h3>
               <p>{people?.result.description}</p>
             </div>
             <div className="extra-info-container">

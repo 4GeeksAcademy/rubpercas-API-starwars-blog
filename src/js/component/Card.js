@@ -43,7 +43,7 @@ const vehiclesImg = {
 
 export const Card = ({ id, type }) => {
   const { store, actions } = useContext(Context);
-  const [data, setData] = useState(null)
+  const [data, setData] = useState(null);
 
   useEffect(() => {
     const getData = async () => {
@@ -59,28 +59,30 @@ export const Card = ({ id, type }) => {
   }, [])
 
   return (
-    <div className="col">
+    <div className="col general-card mt-4 mb-4">
       <div
         className="card mb-3"
         style={{ width: "18rem" }}
         data-bs-theme="dark">
-        <img
-          src={type === "people" ? peopleImg[id] :
-            type === "planets" ? planetImg[id] :
-              vehiclesImg[id]}
-          className="card-img-top"
-          alt="picture" />
+        <div className="d-flex align-items-center justify-content-center">
+          <img
+            src={type === "people" ? peopleImg[id] :
+              type === "planets" ? planetImg[id] :
+                vehiclesImg[id]}
+            className="card-img-top"
+            alt="picture" />
+        </div>
         <div
-          className="card-body d-flex flex-column justify-content-between"
+          className="card-body d-flex flex-column justify-content-between align-items-start p-2"
           style={{ height: "100%", minHeight: "250px" }}>
-          <h5 className="card-title">{data?.result.properties.name}</h5>
+          <h3 className="card-title text-center w-100">{data?.result.properties.name}</h3>
           {
             type === "people" && (
               <>
-                <p className="card-text">Gender: {data?.result.properties.gender}</p>
-                <p className="card-text">Hair Color: {data?.result.properties.hair_color}</p>
-                <p className="card-text">Eye Color: {data?.result.properties.eye_color}</p>
-                <div className='d-flex justify-content-between'>
+                <p className="card-text"><strong>Gender:</strong> {data?.result.properties.gender}</p>
+                <p className="card-text"><strong>Hair Color:</strong> {data?.result.properties.hair_color}</p>
+                <p className="card-text"><strong>Eye Color:</strong> {data?.result.properties.eye_color}</p>
+                <div className='d-flex justify-content-between w-100'>
                   <Link to={`people-details/${id}`}
                     className="btn btn-primary">
                     More info
@@ -99,9 +101,9 @@ export const Card = ({ id, type }) => {
           {
             type === "planets" && (
               <>
-                <p className="card-text">Population: {data?.result.properties.population}</p>
-                <p className="card-text">Terrain: {data?.result.properties.terrain}</p>
-                <div className='d-flex justify-content-between'>
+                <p className="card-text"><strong>Population:</strong> {data?.result.properties.population}</p>
+                <p className="card-text"><strong>Terrain:</strong> {data?.result.properties.terrain}</p>
+                <div className='d-flex justify-content-between w-100 align-self-end'>
                   <Link to={`planet-details/${id}`}
                     className="btn btn-primary">
                     More info
@@ -120,9 +122,9 @@ export const Card = ({ id, type }) => {
           {
             type === "vehicles" && (
               <>
-                <p className="card-text">Model: {data?.result.properties.model}</p>
-                <p className="card-text">Manufacturer: {data?.result.properties.manufacturer}</p>
-                <div className='d-flex justify-content-between'>
+                <p className="card-text"><strong>Model:</strong> {data?.result.properties.model}</p>
+                <p className="card-text text-start"><strong>Manufacturer:</strong> {data?.result.properties.manufacturer}</p>
+                <div className='d-flex justify-content-between w-100'>
                   <Link to={`vehicle-details/${id}`}
                     className="btn btn-primary">
                     More info

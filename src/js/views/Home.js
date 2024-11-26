@@ -8,14 +8,14 @@ export const Home = () => {
 	const { store } = useContext(Context);
 
 	return (
-		<main className="text-center mt-5 container">
+		<main className="text-center mt-5 container-fluid">
 			<section className="mb-5">
 				<div className="row">
 					<div className="col">
-						<h1 className="section-title text-light mb-2">CHARACTERS</h1>
+						<h1 className="section-title mb-2">CHARACTERS</h1>
 					</div>
 				</div>
-				<div className="row row-cols-12 flex-nowrap overflow-auto mt-2">
+				<div className="card-group row row-cols-12 flex-nowrap overflow-auto mt-2">
 					{
 						store.people && store.people.length > 0
 							? store.people.map((character) => (
@@ -33,10 +33,10 @@ export const Home = () => {
 			<section className="mb-5">
 				<div className="row">
 					<div className="col">
-						<h1 className="section-title text-light mb-2">PLANETS</h1>
+						<h1 className="section-title mb-2">PLANETS</h1>
 					</div>
 				</div>
-				<div className="row row-cols-12 flex-nowrap overflow-auto mt-2">
+				<div className="card-group row row-cols-12 flex-nowrap overflow-auto mt-2">
 					{
 						store.planets && store.planets.length > 0
 							? store.planets.map((planet) => (
@@ -57,7 +57,7 @@ export const Home = () => {
 						<h1 className="section-title mb-2">VEHICLES</h1>
 					</div>
 				</div>
-				<div className="row row-cols-12 flex-nowrap overflow-auto mt-2">
+				<div className="card-group row row-cols-12 flex-nowrap overflow-auto mt-2">
 					{
 						store.vehicles && store.vehicles.length > 0
 							? store.vehicles.map((vehicle) => (
