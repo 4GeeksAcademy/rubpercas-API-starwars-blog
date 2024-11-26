@@ -16,3 +16,11 @@
     padding: 0;
     margin: 5px;
 }
+
+.button-del {
+    border: 0;
+}
+
+.my-link {
+    text-decoration: none;
+}
