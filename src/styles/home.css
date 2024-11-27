@@ -2,7 +2,7 @@
 
 .general-card:hover {
   transform: rotate(1deg);
-  transition: 0.5s ease-in-out;
+  transition: 0.2s ease-in-out;
   z-index: 0;
   filter: drop-shadow(5px 5px rgba(122, 122, 122, 0.678))
 }

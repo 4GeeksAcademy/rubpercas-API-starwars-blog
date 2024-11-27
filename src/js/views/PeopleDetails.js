@@ -31,7 +31,7 @@ export const PeopleDetails = () => {
 
   return (
     <>
-      <h1 className="text-center mb-4 mt-4">It's {people?.result.properties.name}!</h1>
+      <h1 className="text-center mb-4 mt-4">It's {people?.result.properties.name} !</h1>
       <div className="container-fluid d-flex justify-content-center">
         <div className="myCard">
           <div className="top-card">
