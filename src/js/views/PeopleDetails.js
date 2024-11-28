@@ -3,23 +3,10 @@ import { useParams } from 'react-router'
 import { Context } from '../store/appContext';
 import "../../styles/peopleDetails.css"
 
-const peopleImg = {
-  1: "https://starwars-visualguide.com/assets/img/characters/1.jpg",
-  2: "https://starwars-visualguide.com/assets/img/characters/2.jpg",
-  3: "https://starwars-visualguide.com/assets/img/characters/3.jpg",
-  4: "https://starwars-visualguide.com/assets/img/characters/4.jpg",
-  5: "https://starwars-visualguide.com/assets/img/characters/5.jpg",
-  6: "https://starwars-visualguide.com/assets/img/characters/6.jpg",
-  7: "https://starwars-visualguide.com/assets/img/characters/7.jpg",
-  8: "https://starwars-visualguide.com/assets/img/characters/8.jpg",
-  9: "https://starwars-visualguide.com/assets/img/characters/9.jpg",
-  10: "https://starwars-visualguide.com/assets/img/characters/10.jpg",
-}
-
 
 export const PeopleDetails = () => {
   const { id } = useParams()
-  const { actions } = useContext(Context);
+  const { store, actions } = useContext(Context);
   const [people, setPeople] = useState(null);
 
   useEffect(() => {
@@ -27,7 +14,7 @@ export const PeopleDetails = () => {
       setPeople(await actions.getPeopleById(id))
     }
     fetchData()
-  }, [people])
+  }, [])
 
   return (
     <>
@@ -36,7 +23,7 @@ export const PeopleDetails = () => {
         <div className="myCard">
           <div className="top-card">
             <div className="detail-img">
-              <img src={peopleImg[id]} className="img-fluid" />
+              <img src={store.peopleImg[id]} className="img-fluid" />
             </div>
             <div className="main-info">
               <h3>{people?.result.properties.name}</h3>

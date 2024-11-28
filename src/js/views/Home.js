@@ -32,9 +32,7 @@ export const Home = () => {
 
 			<section className="mb-5">
 				<div className="row">
-					<div className="col">
-						<h1 className="section-title mb-2">PLANETS</h1>
-					</div>
+					<h1 className="section-title mb-2">PLANETS</h1>
 				</div>
 				<div className="card-group row row-cols-12 flex-nowrap overflow-auto mt-2">
 					{
@@ -53,9 +51,7 @@ export const Home = () => {
 
 			<section>
 				<div className="row">
-					<div className="col">
-						<h1 className="section-title mb-2">VEHICLES</h1>
-					</div>
+					<h1 className="mb-2">VEHICLES</h1>
 				</div>
 				<div className="card-group row row-cols-12 flex-nowrap overflow-auto mt-2">
 					{

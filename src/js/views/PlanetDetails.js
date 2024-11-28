@@ -3,22 +3,10 @@ import { useParams } from 'react-router'
 import { Context } from '../store/appContext';
 import "../../styles/planetDetails.css"
 
-const planetImg = {
-  1: "https://static.wikia.nocookie.net/esstarwars/images/b/b0/Tatooine_TPM.png/revision/latest?cb=20131214162357",
-  2: "https://starwars-visualguide.com/assets/img/planets/2.jpg",
-  3: "https://starwars-visualguide.com/assets/img/planets/3.jpg",
-  4: "https://starwars-visualguide.com/assets/img/planets/4.jpg",
-  5: "https://starwars-visualguide.com/assets/img/planets/5.jpg",
-  6: "https://starwars-visualguide.com/assets/img/planets/6.jpg",
-  7: "https://starwars-visualguide.com/assets/img/planets/7.jpg",
-  8: "https://starwars-visualguide.com/assets/img/planets/8.jpg",
-  9: "https://starwars-visualguide.com/assets/img/planets/9.jpg",
-  10: "https://starwars-visualguide.com/assets/img/planets/10.jpg",
-}
 
 export const PlanetDetails = () => {
   const { id } = useParams()
-  const { actions } = useContext(Context);
+  const { store, actions } = useContext(Context);
   const [planet, setPlanet] = useState(null);
 
   useEffect(() => {
@@ -26,8 +14,7 @@ export const PlanetDetails = () => {
       setPlanet(await actions.getPlanetById(id))
     }
     fetchData()
-  }, [planet])
-
+  }, [id])
 
   return (
     <div className='container'>
@@ -36,7 +23,7 @@ export const PlanetDetails = () => {
         <div className='col d-flex flex-column align-items-center'>
           <div className="card mb-3">
             <div className="top d-flex align-items-center">
-              <img src={planetImg[id]} className="detail-img w-25" />
+              <img src={store.planetImg[id]} className="detail-img w-25" />
               <div className="main-info-text text-center">
                 <h2>{planet?.result.properties.name}</h2>
                 <p>{planet?.result.description}</p>
