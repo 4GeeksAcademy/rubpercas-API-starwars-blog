@@ -37,7 +37,7 @@ export const Navbar = () => {
 									store.favorites.people.map((item) => (
 										<li className="dropdown-item d-flex justify-content-between" key={item.result.uid}>
 											<Link className="my-link" to={`/people-details/${item.result.uid}`}>{item.result.properties.name}</Link>
-											<button className="button-del" onClick={() => actions.toggleFavorite(item, "people")}><FontAwesomeIcon icon={faTrash} style={{ color: "#000000", }} /></button>
+											<button className="button-del" onClick={() => actions.handleFavorite(item, "people")}><FontAwesomeIcon icon={faTrash} style={{ color: "#000000", }} /></button>
 										</li>
 									))
 								) : (
@@ -50,7 +50,7 @@ export const Navbar = () => {
 									store.favorites.planets.map((item) => (
 										<li className="dropdown-item d-flex justify-content-between" key={item.result.uid}>
 											<Link className="my-link" to={`/planets-details/${item.result.uid}`}>{item.result.properties.name}</Link>
-											<button className="button-del" onClick={() => actions.toggleFavorite(item, "planets")}><FontAwesomeIcon icon={faTrash} style={{ color: "#000000", }} /></button>
+											<button className="button-del" onClick={() => actions.handleFavorite(item, "planets")}><FontAwesomeIcon icon={faTrash} style={{ color: "#000000", }} /></button>
 										</li>
 									))
 								) : (

@@ -50,7 +50,7 @@ export const Card = ({ id, type }) => {
                   </Link>
                   <button
                     className='btn btn-danger border border-secondary'
-                    onClick={() => actions.toggleFavorite(data, "people")}>
+                    onClick={() => actions.handleFavorite(data, "people")}>
                     {
                       store.favorites.people.find(favorite => favorite.result.properties.name === data?.result.properties.name) ? <i className="fas fa-heart"></i> : <i className="far fa-heart"></i>
                     }
@@ -71,7 +71,7 @@ export const Card = ({ id, type }) => {
                   </Link>
                   <button
                     className='btn btn-danger border border-secondary'
-                    onClick={() => actions.toggleFavorite(data, "planets")}>
+                    onClick={() => actions.handleFavorite(data, "planets")}>
                     {
                       store.favorites.planets.find(favorite => favorite.result.uid === data?.result.uid) ? <i className="fas fa-heart"></i> : <i className="far fa-heart"></i>
                     }
@@ -91,7 +91,7 @@ export const Card = ({ id, type }) => {
                     More info
                   </Link>
                   <button className='btn btn-danger border border-secondary'
-                    onClick={() => actions.toggleFavorite(data, "vehicles")}>
+                    onClick={() => actions.handleFavorite(data, "vehicles")}>
                     {
                       store.favorites.vehicles.find(favorite => favorite.result.properties.name === data?.result.properties.name) ? <i className="fas fa-heart"></i> : <i className="far fa-heart"></i>
                     }
