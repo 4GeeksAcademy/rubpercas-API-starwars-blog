@@ -65,7 +65,7 @@ export const Card = ({ id, type }) => {
                 <p className="card-text"><strong>Population:</strong> {data?.result.properties.population}</p>
                 <p className="card-text"><strong>Terrain:</strong> {data?.result.properties.terrain}</p>
                 <div className='d-flex justify-content-between w-100 align-self-end'>
-                  <Link to={`planet-details/${id}`}
+                  <Link to={`planets-details/${id}`}
                     className="btn btn-dark border border-secondary">
                     More info
                   </Link>
@@ -86,7 +86,7 @@ export const Card = ({ id, type }) => {
                 <p className="card-text"><strong>Model:</strong> {data?.result.properties.model}</p>
                 <p className="card-text text-start"><strong>Manufacturer:</strong> {data?.result.properties.manufacturer}</p>
                 <div className='d-flex justify-content-between w-100'>
-                  <Link to={`vehicle-details/${id}`}
+                  <Link to={`vehicles-details/${id}`}
                     className="btn btn-dark border border-secondary">
                     More info
                   </Link>

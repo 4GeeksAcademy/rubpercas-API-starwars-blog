@@ -16,8 +16,6 @@ export const VehicleDetails = () => {
     getData()
   }, [id])
 
-  console.log(vehicle);
-
   return (
     <div className='container'>
       <h1 className='mb-4 mt-4 text-center'>An amazing {vehicle?.result.properties.name} !</h1>
@@ -25,7 +23,7 @@ export const VehicleDetails = () => {
         <div className='col d-flex flex-column align-items-center'>
           <div className="card mb-3">
             <div className="top d-flex align-items-center">
-              <img src={store.vehicleImg[id]} className="detail-img" />
+              <img src={store.vehiclesImg[id]} className="detail-img" />
               <div className="main-info-text text-center">
                 <h2>{vehicle?.result.properties.name}</h2>
                 <p>{vehicle?.result.description}</p>

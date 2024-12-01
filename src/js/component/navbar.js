@@ -2,9 +2,10 @@ import React, { useContext } from "react";
 import { Link } from "react-router-dom";
 import logo from "../../img/star-wars-logo.png"
 import { Context } from "../store/appContext";
+import SearchBar from "./Search";
 import '../../styles/navbar.css';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faTrash, faHeart } from '@fortawesome/free-solid-svg-icons';
+import { faTrash } from '@fortawesome/free-solid-svg-icons';
 
 
 
@@ -27,11 +28,9 @@ export const Navbar = () => {
 									{(store.favorites.people.length + store.favorites.vehicles.length + store.favorites.planets.length) || 0}
 								</p>
 							</div>
-							{/* <h6 className="rounded bg-danger p-1 ms-2 mt-0">
-								{(store.favorites.people.length + store.favorites.vehicles.length + store.favorites.planets.length) || 0}
-							</h6> */}
+
 						</button>
-						<ul className="dropdown-menu dropdown-menu-end bg-light border border-dark">
+						<ul className="dropdown-menu dropdown-menu bg-light border border-dark">
 							<li><h2 className="dropdown-header text-dark border-bottom">People</h2></li>
 							{
 								store.favorites.people && store.favorites.people.length > 0 ? (
@@ -50,7 +49,7 @@ export const Navbar = () => {
 								store.favorites.planets && store.favorites.planets.length > 0 ? (
 									store.favorites.planets.map((item) => (
 										<li className="dropdown-item d-flex justify-content-between" key={item.result.uid}>
-											<Link className="my-link" to={`/planet-details/${item.result.uid}`}>{item.result.properties.name}</Link>
+											<Link className="my-link" to={`/planets-details/${item.result.uid}`}>{item.result.properties.name}</Link>
 											<button className="button-del" onClick={() => actions.toggleFavorite(item, "planets")}><FontAwesomeIcon icon={faTrash} style={{ color: "#000000", }} /></button>
 										</li>
 									))
@@ -63,7 +62,7 @@ export const Navbar = () => {
 								store.favorites.vehicles && store.favorites.vehicles.length > 0 ? (
 									store.favorites.vehicles.map((item) => (
 										<li className="dropdown-item d-flex justify-content-between" key={item.result.uid}>
-											<Link className="my-link" to={`/vehicle-details/${item.result.uid}`}>{item.result.properties.name}</Link>
+											<Link className="my-link" to={`/vehicles-details/${item.result.uid}`}>{item.result.properties.name}</Link>
 											<button className="button-del" onClick={() => actions.toggleFavorite(item, "vehicles")}><FontAwesomeIcon icon={faTrash} style={{ color: "#000000", }} /></button>
 										</li>
 									))
@@ -73,6 +72,9 @@ export const Navbar = () => {
 							}
 						</ul>
 					</div>
+				</div>
+				<div>
+					<SearchBar data={store} /> 
 				</div>
 			</div>
 		</nav>

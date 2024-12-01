@@ -23,7 +23,7 @@ export const PlanetDetails = () => {
         <div className='col d-flex flex-column align-items-center'>
           <div className="card mb-3">
             <div className="top d-flex align-items-center">
-              <img src={store.planetImg[id]} className="detail-img w-25" />
+              <img src={store.planetsImg[id]} className="detail-img w-25" />
               <div className="main-info-text text-center">
                 <h2>{planet?.result.properties.name}</h2>
                 <p>{planet?.result.description}</p>
