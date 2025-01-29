@@ -63,7 +63,7 @@ export const Navbar = () => {
 									store.favorites.vehicles.map((item) => (
 										<li className="dropdown-item d-flex justify-content-between" key={item.result.uid}>
 											<Link className="my-link" to={`/vehicles-details/${item.result.uid}`}>{item.result.properties.name}</Link>
-											<button className="button-del" onClick={() => actions.toggleFavorite(item, "vehicles")}><FontAwesomeIcon icon={faTrash} style={{ color: "#000000", }} /></button>
+											<button className="button-del" onClick={() => actions.handleFavorite(item, "vehicles")}><FontAwesomeIcon icon={faTrash} style={{ color: "#000000", }} /></button>
 										</li>
 									))
 								) : (
